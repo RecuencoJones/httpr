@@ -1,0 +1,12 @@
+# Node
+.npmrc
+node_modules
+npm-debug*
+
+# JetBrains
+.idea
+
+# Generated
+doc
+dist
+test/results
