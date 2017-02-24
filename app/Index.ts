@@ -1,13 +1,9 @@
 // Core
 export {Httpr} from './Core/Httpr';
 export {HttprStatic} from './Core/HttprStatic';
-
-// Interceptors
+export {HttpProvider} from './Core/HttpProvider';
 export {HttprInterceptor} from './Core/HttprInterceptor';
-
-// Providers
-export {IHttpProvider} from './Interface/IHttpProvider';
-export {XHRProvider} from './Provider/XHRProvider';
+export {urlEncode} from './Core/HttprUtils';
 
 // Enums
 export {HttpMethods} from './Enum/HttpMethods';

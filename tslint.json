@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "no-trailing-whitespace": true
+  }
+}

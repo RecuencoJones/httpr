@@ -1,13 +1,13 @@
-import * as urlJoin from 'url-join';
-import {Promise} from 'es6-promise';
+import urlJoin = require('url-join');
 import {Map} from '../Type/Map';
 import {HttpMethod} from '../Type/HttpMethod';
 import {PlainObject} from '../Type/PlainObject';
 import {HttpRequestSettings} from '../Type/HttpRequestSettings';
-import {Httpr} from './Httpr';
 import {HttpMethods} from '../Enum/HttpMethods';
 import {HttpHeaders} from '../Enum/HttpHeaders';
 import {MediaTypes} from '../Enum/MediaTypes';
+import {Httpr} from './Httpr';
+import {HttprInterceptor} from './HttprInterceptor';
 
 export class HttprStatic {
   /**
@@ -31,8 +31,12 @@ export class HttprStatic {
 
     if (typeof body === 'object') {
       settings.headers[HttpHeaders.CONTENT_TYPE] = MediaTypes.APPLICATION_JSON;
-      settings.body = JSON.stringify(settings.body);
+      settings.body = JSON.stringify(body);
     }
+
+    instance.interceptors.forEach((interceptor: HttprInterceptor) => {
+      settings = interceptor.beforeRequest(settings);
+    });
 
     return settings;
   }
@@ -41,15 +45,27 @@ export class HttprStatic {
    *
    * @returns {Promise<void>}
    */
-  public static onSuccess(): Promise<void> {
-    return Promise.resolve();
+  public static onSuccess(instance: Httpr, response: any): Promise<any> {
+    let _response = response;
+
+    instance.interceptors.forEach((interceptor: HttprInterceptor) => {
+      _response = interceptor.afterSuccess(_response);
+    });
+
+    return Promise.resolve(_response);
   }
 
   /**
    *
    * @returns {Promise<void>}
    */
-  public static onError(): Promise<void> {
-    return Promise.reject(null);
+  public static onError(instance: Httpr, response: any): Promise<any> {
+    let _response = response;
+
+    instance.interceptors.forEach((interceptor: HttprInterceptor) => {
+      _response = interceptor.afterError(_response);
+    });
+
+    return Promise.reject(_response);
   }
 }
