@@ -27,7 +27,7 @@ describe('HttprStatic', () => {
       let expected = HttprStatic.build(instance, null, null);
 
       expect(expected).to.deep.equal({
-        url: '/',
+        url: '',
         method: HttpMethods.GET,
         headers: {},
         params: {}
