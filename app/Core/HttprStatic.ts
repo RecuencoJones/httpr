@@ -1,4 +1,3 @@
-import urlJoin = require('url-join');
 import {Map} from '../Type/Map';
 import {HttpMethod} from '../Type/HttpMethod';
 import {PlainObject} from '../Type/PlainObject';
@@ -8,17 +7,19 @@ import {HttpHeaders} from '../Enum/HttpHeaders';
 import {MediaTypes} from '../Enum/MediaTypes';
 import {Httpr} from './Httpr';
 import {HttprInterceptor} from './HttprInterceptor';
+import {urlJoin} from './HttprUtils';
 
 export class HttprStatic {
   /**
+   * Prepare request settings and apply interceptors before sending the request.
    *
-   * @param instance
-   * @param method
-   * @param url
-   * @param params
-   * @param headers
-   * @param body
-   * @returns {HttpRequestSettings}
+   * @param {Httpr} instance - instance of Http
+   * @param {HttpMethod} method - http method to use.
+   * @param {string} url - url of resource to request.
+   * @param {PlainObject} params - hash of additional query parameters.
+   * @param {Map<string>} headers - hash of request headers to set.
+   * @param {*} body - request body data.
+   * @returns {HttpRequestSettings} prepared request settings.
    */
   public static build(instance: Httpr, method: HttpMethod, url: string, params?: PlainObject,
                       headers?: Map<string>, body?: any): HttpRequestSettings {
@@ -42,8 +43,9 @@ export class HttprStatic {
   }
 
   /**
+   * Receive success response and apply interceptors.
    *
-   * @returns {Promise<void>}
+   * @returns {Promise<*>} resolution handler.
    */
   public static onSuccess(instance: Httpr, response: any): Promise<any> {
     let _response = response;
@@ -56,8 +58,9 @@ export class HttprStatic {
   }
 
   /**
+   * Receive error response and apply interceptors.
    *
-   * @returns {Promise<void>}
+   * @returns {Promise<*>} rejection handler.
    */
   public static onError(instance: Httpr, response: any): Promise<any> {
     let _response = response;

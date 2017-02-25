@@ -49,10 +49,11 @@ export class Httpr {
   }
 
   /**
+   * Perform a GET request.
    *
-   * @param url
-   * @param params
-   * @param headers
+   * @param {string} url - url of resource to request.
+   * @param {PlainObject} params - hash of additional query parameters.
+   * @param {Map<string>} headers - hash of request headers to set.
    * @returns {Promise<*>}
    */
   public get(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
@@ -60,57 +61,62 @@ export class Httpr {
   }
 
   /**
+   * Perform a POST request.
    *
-   * @param url
-   * @param params
-   * @param body
-   * @param headers
-   * @returns {Promise<*>}
+   * @param {string} url - url of resource to request.
+   * @param {PlainObject} params - hash of additional query parameters.
+   * @param {*} body - request body data.
+   * @param {Map<string>} headers - hash of request headers to set.
+   * @returns {Promise<*>} promise handler.
    */
   public post(url: string, params?: PlainObject, body?: any, headers?: Map<string>): Promise<any> {
     return this.request(HttpMethods.POST, url, params, headers, body);
   }
 
   /**
+   * Perform a PUT request.
    *
-   * @param url
-   * @param params
-   * @param body
-   * @param headers
-   * @returns {Promise<*>}
+   * @param {string} url - url of resource to request.
+   * @param {PlainObject} params - hash of additional query parameters.
+   * @param {*} body - request body data.
+   * @param {Map<string>} headers - hash of request headers to set.
+   * @returns {Promise<*>} promise handler.
    */
   public put(url: string, params?: PlainObject, body?: any, headers?: Map<string>): Promise<any> {
     return this.request(HttpMethods.PUT, url, params, headers, body);
   }
 
   /**
+   * Perform a DELETE request.
    *
-   * @param url
-   * @param params
-   * @param headers
-   * @returns {Promise<*>}
+   * @param {string} url - url of resource to request.
+   * @param {PlainObject} params - hash of additional query parameters.
+   * @param {Map<string>} headers - hash of request headers to set.
+   * @returns {Promise<*>} promise handler.
    */
   public del(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
     return this.request(HttpMethods.DELETE, url, params, headers);
   }
 
   /**
+   * Perform an OPTIONS request.
    *
-   * @param url
-   * @param params
-   * @param headers
-   * @returns {Promise<*>}
+   * @param {string} url - url of resource to request.
+   * @param {PlainObject} params - hash of additional query parameters.
+   * @param {Map<string>} headers - hash of request headers to set.
+   * @returns {Promise<*>} promise handler.
    */
   public options(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
     return this.request(HttpMethods.OPTIONS, url, params, headers);
   }
 
   /**
+   * Perform a PATCH request.
    *
-   * @param url
-   * @param params
-   * @param headers
-   * @returns {Promise<*>}
+   * @param {string} url - url of resource to request.
+   * @param {PlainObject} params - hash of additional query parameters.
+   * @param {Map<string>} headers - hash of request headers to set.
+   * @returns {Promise<*>} promise handler.
    */
   public patch(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
     return this.request(HttpMethods.PATCH, url, params, headers);
@@ -136,6 +142,7 @@ export class Httpr {
 
   /**
    * Add an interceptor to the Http instance.
+   *
    * @param {HttprInterceptor} interceptor - instance of the interceptor to add.
    * @returns {Httpr} current Http instance.
    */
@@ -147,6 +154,7 @@ export class Httpr {
 
   /**
    * Remove an interceptor from the Http instance.
+   *
    * @param {?HttprInterceptor} interceptor - instance of the interceptor to remove.
    * If none is specified, remove all interceptors.
    * @returns {Httpr} current Http instance.

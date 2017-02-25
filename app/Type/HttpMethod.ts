@@ -1,3 +1,6 @@
+/**
+ * Available HTTP methods.
+ */
 export type HttpMethod = 'get' |
   'post' |
   'put' |

@@ -3,6 +3,7 @@ import {HttpRequestSettings} from '../Type/HttpRequestSettings';
 export class HttprProvider {
   /**
    * Perform a request with low level implementation.
+   *
    * @param {HttpRequestSettings} settings - request settings.
    * @return {Promise<*>} promise handler.
    */
