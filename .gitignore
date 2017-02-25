@@ -8,5 +8,6 @@ npm-debug*
 
 # Generated
 doc
+defs
 dist
 test/results

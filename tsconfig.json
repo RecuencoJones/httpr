@@ -6,6 +6,9 @@
     "sourceMap": true,
     "outDir": "dist"
   },
+  "files": [
+    "app/Index.ts"
+  ],
   "exclude": [
     "node_modules",
     "dist"

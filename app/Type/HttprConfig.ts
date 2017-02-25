@@ -1,4 +1,4 @@
-import {HttpProvider} from '../Core/HttpProvider';
+import {HttprProvider} from '../Core/HttprProvider';
 
 export type HttprConfig = {
   /**
@@ -9,5 +9,5 @@ export type HttprConfig = {
   /**
    * Implementation of the provider that will perform the requests.
    */
-  provider: HttpProvider;
-}
+  provider: HttprProvider;
+};

@@ -13,6 +13,7 @@ module.exports = (config) => {
     ],
 
     files: [
+      'node_modules/es6-promise/dist/es6-promise.auto.min.js',
       'node_modules/lodash/lodash.min.js',
       'test/specs/unit/**/*.spec.ts'
     ],

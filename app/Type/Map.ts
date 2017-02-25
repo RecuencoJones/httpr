@@ -1,3 +1,3 @@
 export type Map<V> = {
-  [key: string]: V
+  [key: string]: V;
 }

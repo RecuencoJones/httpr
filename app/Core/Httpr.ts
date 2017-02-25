@@ -6,7 +6,7 @@ import {HttpMethods} from '../Enum/HttpMethods';
 import {HttprInterceptor} from '../Core/HttprInterceptor';
 import {HttprConfig} from '../Type/HttprConfig';
 import {HttprStatic} from '../Core/HttprStatic';
-import {HttpProvider} from './HttpProvider';
+import {HttprProvider} from './HttprProvider';
 
 export class Httpr {
   /**
@@ -26,7 +26,7 @@ export class Httpr {
    */
   public constructor(config: HttprConfig) {
     this._config = _.defaults(config, {
-      provider: new HttpProvider()
+      provider: new HttprProvider()
     });
   }
 
@@ -35,7 +35,7 @@ export class Httpr {
    *
    * @returns {Array<HttprInterceptor>} list of interceptors.
    */
-  public get interceptors() {
+  public get interceptors(): Array<HttprInterceptor> {
     return this._interceptors;
   }
 
@@ -44,7 +44,7 @@ export class Httpr {
    *
    * @returns {HttprConfig} current config.
    */
-  public get config() {
+  public get config(): HttprConfig {
     return _.cloneDeep(this._config);
   }
 
@@ -53,9 +53,10 @@ export class Httpr {
    * @param url
    * @param params
    * @param headers
+   * @returns {Promise<*>}
    */
-  public get(url: string, params?: PlainObject, headers?: Map<string>) {
-    this.request(HttpMethods.GET, url, params, headers);
+  public get(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
+    return this.request(HttpMethods.GET, url, params, headers);
   }
 
   /**
@@ -64,9 +65,10 @@ export class Httpr {
    * @param params
    * @param body
    * @param headers
+   * @returns {Promise<*>}
    */
-  public post(url: string, params?: PlainObject, body?: any, headers?: Map<string>) {
-    this.request(HttpMethods.POST, url, params, headers, body);
+  public post(url: string, params?: PlainObject, body?: any, headers?: Map<string>): Promise<any> {
+    return this.request(HttpMethods.POST, url, params, headers, body);
   }
 
   /**
@@ -75,9 +77,10 @@ export class Httpr {
    * @param params
    * @param body
    * @param headers
+   * @returns {Promise<*>}
    */
-  public put(url: string, params?: PlainObject, body?: any, headers?: Map<string>) {
-    this.request(HttpMethods.PUT, url, params, headers, body);
+  public put(url: string, params?: PlainObject, body?: any, headers?: Map<string>): Promise<any> {
+    return this.request(HttpMethods.PUT, url, params, headers, body);
   }
 
   /**
@@ -85,9 +88,10 @@ export class Httpr {
    * @param url
    * @param params
    * @param headers
+   * @returns {Promise<*>}
    */
-  public del(url: string, params?: PlainObject, headers?: Map<string>) {
-    this.request(HttpMethods.DELETE, url, params, headers);
+  public del(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
+    return this.request(HttpMethods.DELETE, url, params, headers);
   }
 
   /**
@@ -95,9 +99,10 @@ export class Httpr {
    * @param url
    * @param params
    * @param headers
+   * @returns {Promise<*>}
    */
-  public options(url: string, params?: PlainObject, headers?: Map<string>) {
-    this.request(HttpMethods.OPTIONS, url, params, headers);
+  public options(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
+    return this.request(HttpMethods.OPTIONS, url, params, headers);
   }
 
   /**
@@ -105,9 +110,10 @@ export class Httpr {
    * @param url
    * @param params
    * @param headers
+   * @returns {Promise<*>}
    */
-  public patch(url: string, params?: PlainObject, headers?: Map<string>) {
-    this.request(HttpMethods.PATCH, url, params, headers);
+  public patch(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
+    return this.request(HttpMethods.PATCH, url, params, headers);
   }
 
   /**

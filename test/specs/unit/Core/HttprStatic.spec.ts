@@ -4,13 +4,13 @@ import {Httpr} from '../../../../app/Core/Httpr';
 import {HttpMethods} from '../../../../app/Enum/HttpMethods';
 import {MediaTypes} from '../../../../app/Enum/MediaTypes';
 import {HttpHeaders} from '../../../../app/Enum/HttpHeaders';
-import {HttpProvider} from '../../../../app/Core/HttpProvider';
+import {HttprProvider} from '../../../../app/Core/HttprProvider';
 import {HttpRequestSettings} from '../../../../app/Type/HttpRequestSettings';
 
 describe('HttprStatic', () => {
   let instance: Httpr;
 
-  class DryProvider implements HttpProvider {
+  class DryProvider implements HttprProvider {
     request(settings: HttpRequestSettings): Promise<any> {
       return undefined;
     }
