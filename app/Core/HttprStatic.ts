@@ -1,4 +1,4 @@
-import {Map} from '../Type/Map';
+import {StringMap} from '../Type/StringMap';
 import {HttpMethod} from '../Type/HttpMethod';
 import {PlainObject} from '../Type/PlainObject';
 import {HttpRequestSettings} from '../Type/HttpRequestSettings';
@@ -21,12 +21,12 @@ export class HttprStatic {
    * @param {HttpMethod} method - http method to use.
    * @param {string} url - url of resource to request.
    * @param {PlainObject} params - hash of additional query parameters.
-   * @param {Map<string>} headers - hash of request headers to set.
+   * @param {StringMap} headers - hash of request headers to set.
    * @param {*} body - request body data.
    * @returns {HttpRequestSettings} prepared request settings.
    */
   public static build(instance: Httpr, method: HttpMethod, url: string, params?: PlainObject,
-                      headers?: Map<string>, body?: any): HttpRequestSettings {
+                      headers?: StringMap, body?: any): HttpRequestSettings {
     let settings: HttpRequestSettings = {
       method: method || HttpMethods.GET,
       url: urlJoin(instance.config.baseUrl, url) || '',

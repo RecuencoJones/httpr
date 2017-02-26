@@ -12,7 +12,7 @@ describe('HttprStatic', () => {
 
   class DryProvider implements HttprProvider {
     request(settings: HttpRequestSettings): Promise<any> {
-      return undefined;
+      return Promise.resolve({});
     }
   }
 

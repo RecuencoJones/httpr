@@ -2,6 +2,8 @@ import {HttpMethod} from '../Type/HttpMethod';
 
 /**
  * Http Method constants.
+ *
+ * @see {@link HttpMethod}
  */
 export class HttpMethods {
   public static GET: HttpMethod = 'get';

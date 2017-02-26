@@ -1,4 +1,4 @@
-import {Map} from './Map';
+import {StringMap} from './StringMap';
 
 /**
  * Http Response.
@@ -27,5 +27,5 @@ export type HttpResponse = {
   /**
    * Response headers.
    */
-  headers: Map<string>;
+  headers: StringMap;
 };

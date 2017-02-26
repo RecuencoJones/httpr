@@ -15,5 +15,5 @@ export {HttprConfig} from './Type/HttprConfig';
 export {HttpRequestSettings} from './Type/HttpRequestSettings';
 export {HttpResponse} from './Type/HttpResponse';
 export {HttpMethod} from './Type/HttpMethod';
-export {Map} from './Type/Map';
+export {StringMap} from './Type/StringMap';
 export {PlainObject} from './Type/PlainObject';

@@ -2,6 +2,7 @@
 
 - Added Http Response Type.
 - Added further documentation to classes and types.
+- Changed Map<string> type to StringMap.
 - Updated README.
 
 ## 1.0.0-rc1
