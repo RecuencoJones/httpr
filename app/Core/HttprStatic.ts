@@ -1,4 +1,4 @@
-import {Map} from '../Type/Map';
+import {StringMap} from '../Type/StringMap';
 import {HttpMethod} from '../Type/HttpMethod';
 import {PlainObject} from '../Type/PlainObject';
 import {HttpRequestSettings} from '../Type/HttpRequestSettings';
@@ -8,7 +8,11 @@ import {MediaTypes} from '../Enum/MediaTypes';
 import {Httpr} from './Httpr';
 import {HttprInterceptor} from './HttprInterceptor';
 import {urlJoin} from './HttprUtils';
+import {HttpResponse} from '../Type/HttpResponse';
 
+/**
+ * Static methods used in Httpr for preparing requests and managing interceptors.
+ */
 export class HttprStatic {
   /**
    * Prepare request settings and apply interceptors before sending the request.
@@ -17,12 +21,12 @@ export class HttprStatic {
    * @param {HttpMethod} method - http method to use.
    * @param {string} url - url of resource to request.
    * @param {PlainObject} params - hash of additional query parameters.
-   * @param {Map<string>} headers - hash of request headers to set.
+   * @param {StringMap} headers - hash of request headers to set.
    * @param {*} body - request body data.
    * @returns {HttpRequestSettings} prepared request settings.
    */
   public static build(instance: Httpr, method: HttpMethod, url: string, params?: PlainObject,
-                      headers?: Map<string>, body?: any): HttpRequestSettings {
+                      headers?: StringMap, body?: any): HttpRequestSettings {
     let settings: HttpRequestSettings = {
       method: method || HttpMethods.GET,
       url: urlJoin(instance.config.baseUrl, url) || '',
@@ -45,9 +49,9 @@ export class HttprStatic {
   /**
    * Receive success response and apply interceptors.
    *
-   * @returns {Promise<*>} resolution handler.
+   * @returns {Promise<HttpResponse>} resolution handler.
    */
-  public static onSuccess(instance: Httpr, response: any): Promise<any> {
+  public static onSuccess(instance: Httpr, response: HttpResponse): Promise<HttpResponse> {
     let _response = response;
 
     instance.interceptors.forEach((interceptor: HttprInterceptor) => {
@@ -60,9 +64,9 @@ export class HttprStatic {
   /**
    * Receive error response and apply interceptors.
    *
-   * @returns {Promise<*>} rejection handler.
+   * @returns {Promise<HttpResponse>} rejection handler.
    */
-  public static onError(instance: Httpr, response: any): Promise<any> {
+  public static onError(instance: Httpr, response: HttpResponse): Promise<HttpResponse> {
     let _response = response;
 
     instance.interceptors.forEach((interceptor: HttprInterceptor) => {

@@ -1,7 +1,10 @@
-import {Map} from '../Type/Map';
+import {StringMap} from './StringMap';
 import {HttpMethod} from './HttpMethod';
 import {PlainObject} from './PlainObject';
 
+/**
+ * Http Request Settings.
+ */
 export type HttpRequestSettings = {
   /**
    * Request method.
@@ -21,7 +24,7 @@ export type HttpRequestSettings = {
   /**
    * Request headers.
    */
-  headers: Map<string>;
+  headers: StringMap;
 
   /**
    * Request body.
