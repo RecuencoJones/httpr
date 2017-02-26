@@ -1,9 +1,22 @@
 language: node_js
 node_js:
-  - "5"
+- '6'
 
 install:
-  - npm install
+- npm install
 
 script:
-  - npm test
+- npm test
+
+before_deploy:
+- npm run clean
+- npm run build
+
+deploy:
+  provider: npm
+  email: david.recuencogadea@gmail.com
+  api_key:
+    secure: nVk6cBZtvu9XlyQBZ/HqfSyspp7oYwM3+SAfmktZlM7PAgcU2HwHrKtOCP1NnSeJilPcCxZCDnPh6A+tVOl1WNrObkyjMpratNieiNnIRPTcq2QjrRBPlmIzMDqfrmmvyf4xaROzmkdpIuvdK+Gi0n0IZgXfpHOXDwcEBXvl4Ox9I4X9TDgFT6RDuKbv5RiUY+mEarcenbZdm1f46dVw0ZkNmilEPekPz5VgcsVM6Gk2MJnAff5fgrtiGvqQ3OTNC8S50UK3053XtcLzjkW6VbPuBVK9WvR6ALB7Yhurg439809RYMaBTf0yBy/YCaYjMToVCvaNLkXdhp3wNpE6UY+TWKC59WqrJmZYbYWyggN4r6y7nF4uVgBsABTXqauSjsetBDGxh1Rpr1gI3/bd2gIR85DrY0ZnS+L5Fo76a0WledbzAoQ+uDnv2XHRe+KhJVTBqhGTE+H0PAV+T8snD8CarqLy6EDT0NUefT3kjLAL40NspvSLMPisWcymUja7vdovD9ZCwmxSpdVvUspzsDBfby34a2H4l3wbpcwzIK2hSneev+IgqcMLM/OOzzuHt9lO0Jb8hyj3K95/MGurjo0ZLlvPBVw99MyuqonyfNOYt5/qdjOulAv6Yv2TRRF3acL7q/Ic/5IUP7K8LjQrjxnYIS1guSfHqbog3jiav3Y=
+  on:
+    branch: master
+  skip_cleanup: true
