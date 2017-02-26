@@ -1,6 +1,6 @@
 {
   "name": "httpr",
-  "version": "1.0.0-rc2",
+  "version": "1.0.0-rc3",
   "description": "HTTP Library for JavaScript",
   "main": "dist/httpr.js",
   "types": "defs/index.d.ts",
