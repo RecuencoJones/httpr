@@ -7,7 +7,7 @@ A simple library for working with HTTP requests in any environment, independent 
 Httpr is not just another HTTP provider, in fact it is an abstraction from other HTTP providers like XHR,
 jquery, fetch, etc.
 
-Httpr provides an abstraction and a common interface to all of them, featuring also interceptors, which
+Httpr provides a common interface to all of them, featuring also interceptors, which
 offer powerful options for managing HTTP requests, from adding headers and query parameters, to middleware
 caches or formatting requests and responses as needed.
 
