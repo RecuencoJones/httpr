@@ -55,7 +55,7 @@ export class Httpr {
    * @param {string} url - url of resource to request.
    * @param {PlainObject} params - hash of additional query parameters.
    * @param {Map<string>} headers - hash of request headers to set.
-   * @returns {Promise<HttpResponse>} promise handler
+   * @returns {Promise<HttpResponse>} promise handler.
    */
   public get(url: string, params?: PlainObject, headers?: Map<string>): Promise<HttpResponse> {
     return this.request(HttpMethods.GET, url, params, headers);

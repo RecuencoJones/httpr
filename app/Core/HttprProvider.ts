@@ -3,6 +3,7 @@ import {HttpResponse} from '../Type/HttpResponse';
 
 /**
  * Httpr Provider fake implementation.
+ *
  * This class should be extended and overridden by a low level implementation to perform
  * the actual request.
  */

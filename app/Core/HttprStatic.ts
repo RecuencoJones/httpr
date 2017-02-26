@@ -10,6 +10,9 @@ import {HttprInterceptor} from './HttprInterceptor';
 import {urlJoin} from './HttprUtils';
 import {HttpResponse} from '../Type/HttpResponse';
 
+/**
+ * Static methods used in Httpr for preparing requests and managing interceptors.
+ */
 export class HttprStatic {
   /**
    * Prepare request settings and apply interceptors before sending the request.

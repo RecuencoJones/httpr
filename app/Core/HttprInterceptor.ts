@@ -1,6 +1,11 @@
 import {HttpRequestSettings} from '../Type/HttpRequestSettings';
 import {HttpResponse} from '../Type/HttpResponse';
 
+/**
+ * Httpr Interceptor default implementation.
+ *
+ * This class should be extended to create new, functional interceptors.
+ */
 export class HttprInterceptor {
   /**
    * Apply modifications to request settings.

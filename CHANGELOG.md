@@ -1,6 +1,7 @@
 ## 1.0.0-rc2
 
 - Added Http Response Type.
+- Added further documentation to classes and types.
 - Updated README.
 
 ## 1.0.0-rc1
