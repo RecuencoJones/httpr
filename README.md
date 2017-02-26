@@ -62,6 +62,7 @@ Other tasks:
 - `npm run build:umd` - generate library bundle.
 - `npm run build:min` - generate minified library bundle.
 - `npm run build:defs` - generate definitions from barrel to `defs` directory.
+- `npm run clean` - remove generated directories.
 - `npm run lint` - check style of source files.
 - `npm run doc` - generate documentation from sources to `doc` directory.
 - `npm run test` - run all test suites.

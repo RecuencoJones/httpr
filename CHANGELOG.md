@@ -2,6 +2,7 @@
 
 - Added Http Response Type.
 - Added further documentation to classes and types.
+- Added clean script.
 - Changed Map<string> type to StringMap.
 - Updated README.
 
