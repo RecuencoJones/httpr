@@ -1,6 +1,7 @@
 ## 1.0.0-rc3
 
 - Added travis integration.
+- Added LICENSE file.
 
 ## 1.0.0-rc2
 
