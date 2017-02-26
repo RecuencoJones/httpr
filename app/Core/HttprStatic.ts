@@ -8,6 +8,7 @@ import {MediaTypes} from '../Enum/MediaTypes';
 import {Httpr} from './Httpr';
 import {HttprInterceptor} from './HttprInterceptor';
 import {urlJoin} from './HttprUtils';
+import {HttpResponse} from '../Type/HttpResponse';
 
 export class HttprStatic {
   /**
@@ -45,9 +46,9 @@ export class HttprStatic {
   /**
    * Receive success response and apply interceptors.
    *
-   * @returns {Promise<*>} resolution handler.
+   * @returns {Promise<HttpResponse>} resolution handler.
    */
-  public static onSuccess(instance: Httpr, response: any): Promise<any> {
+  public static onSuccess(instance: Httpr, response: HttpResponse): Promise<HttpResponse> {
     let _response = response;
 
     instance.interceptors.forEach((interceptor: HttprInterceptor) => {
@@ -60,9 +61,9 @@ export class HttprStatic {
   /**
    * Receive error response and apply interceptors.
    *
-   * @returns {Promise<*>} rejection handler.
+   * @returns {Promise<HttpResponse>} rejection handler.
    */
-  public static onError(instance: Httpr, response: any): Promise<any> {
+  public static onError(instance: Httpr, response: HttpResponse): Promise<HttpResponse> {
     let _response = response;
 
     instance.interceptors.forEach((interceptor: HttprInterceptor) => {

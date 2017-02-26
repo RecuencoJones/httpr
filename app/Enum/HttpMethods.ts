@@ -1,4 +1,8 @@
 import {HttpMethod} from '../Type/HttpMethod';
+
+/**
+ * Http Method constants.
+ */
 export class HttpMethods {
   public static GET: HttpMethod = 'get';
   public static POST: HttpMethod = 'post';

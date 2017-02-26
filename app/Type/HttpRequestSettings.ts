@@ -2,6 +2,9 @@ import {Map} from '../Type/Map';
 import {HttpMethod} from './HttpMethod';
 import {PlainObject} from './PlainObject';
 
+/**
+ * Http Request Settings.
+ */
 export type HttpRequestSettings = {
   /**
    * Request method.

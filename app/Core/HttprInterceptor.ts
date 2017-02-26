@@ -1,4 +1,5 @@
 import {HttpRequestSettings} from '../Type/HttpRequestSettings';
+import {HttpResponse} from '../Type/HttpResponse';
 
 export class HttprInterceptor {
   /**
@@ -14,20 +15,20 @@ export class HttprInterceptor {
   /**
    * Apply modifications to success response.
    *
-   * @param {*} response - success response.
-   * @return {*} modified response.
+   * @param {HttpResponse} response - success response.
+   * @return {HttpResponse} modified response.
    */
-  public afterSuccess(response: any): any {
+  public afterSuccess(response: HttpResponse): HttpResponse {
     return response;
   }
 
   /**
    * Apply modifications to error response.
    *
-   * @param {*} response - error response.
-   * @return {*} modified response.
+   * @param {HttpResponse} response - error response.
+   * @return {HttpResponse} modified response.
    */
-  public afterError(response: any): any {
+  public afterError(response: HttpResponse): HttpResponse {
     return response;
   }
 }

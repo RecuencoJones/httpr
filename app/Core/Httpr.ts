@@ -7,6 +7,7 @@ import {HttprInterceptor} from '../Core/HttprInterceptor';
 import {HttprConfig} from '../Type/HttprConfig';
 import {HttprStatic} from '../Core/HttprStatic';
 import {HttprProvider} from './HttprProvider';
+import {HttpResponse} from '../Type/HttpResponse';
 
 export class Httpr {
   /**
@@ -54,9 +55,9 @@ export class Httpr {
    * @param {string} url - url of resource to request.
    * @param {PlainObject} params - hash of additional query parameters.
    * @param {Map<string>} headers - hash of request headers to set.
-   * @returns {Promise<*>}
+   * @returns {Promise<HttpResponse>} promise handler
    */
-  public get(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
+  public get(url: string, params?: PlainObject, headers?: Map<string>): Promise<HttpResponse> {
     return this.request(HttpMethods.GET, url, params, headers);
   }
 
@@ -67,9 +68,9 @@ export class Httpr {
    * @param {PlainObject} params - hash of additional query parameters.
    * @param {*} body - request body data.
    * @param {Map<string>} headers - hash of request headers to set.
-   * @returns {Promise<*>} promise handler.
+   * @returns {Promise<HttpResponse>} promise handler.
    */
-  public post(url: string, params?: PlainObject, body?: any, headers?: Map<string>): Promise<any> {
+  public post(url: string, params?: PlainObject, body?: any, headers?: Map<string>): Promise<HttpResponse> {
     return this.request(HttpMethods.POST, url, params, headers, body);
   }
 
@@ -80,9 +81,9 @@ export class Httpr {
    * @param {PlainObject} params - hash of additional query parameters.
    * @param {*} body - request body data.
    * @param {Map<string>} headers - hash of request headers to set.
-   * @returns {Promise<*>} promise handler.
+   * @returns {Promise<HttpResponse>} promise handler.
    */
-  public put(url: string, params?: PlainObject, body?: any, headers?: Map<string>): Promise<any> {
+  public put(url: string, params?: PlainObject, body?: any, headers?: Map<string>): Promise<HttpResponse> {
     return this.request(HttpMethods.PUT, url, params, headers, body);
   }
 
@@ -92,9 +93,9 @@ export class Httpr {
    * @param {string} url - url of resource to request.
    * @param {PlainObject} params - hash of additional query parameters.
    * @param {Map<string>} headers - hash of request headers to set.
-   * @returns {Promise<*>} promise handler.
+   * @returns {Promise<HttpResponse>} promise handler.
    */
-  public del(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
+  public del(url: string, params?: PlainObject, headers?: Map<string>): Promise<HttpResponse> {
     return this.request(HttpMethods.DELETE, url, params, headers);
   }
 
@@ -104,9 +105,9 @@ export class Httpr {
    * @param {string} url - url of resource to request.
    * @param {PlainObject} params - hash of additional query parameters.
    * @param {Map<string>} headers - hash of request headers to set.
-   * @returns {Promise<*>} promise handler.
+   * @returns {Promise<HttpResponse>} promise handler.
    */
-  public options(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
+  public options(url: string, params?: PlainObject, headers?: Map<string>): Promise<HttpResponse> {
     return this.request(HttpMethods.OPTIONS, url, params, headers);
   }
 
@@ -116,9 +117,9 @@ export class Httpr {
    * @param {string} url - url of resource to request.
    * @param {PlainObject} params - hash of additional query parameters.
    * @param {Map<string>} headers - hash of request headers to set.
-   * @returns {Promise<*>} promise handler.
+   * @returns {Promise<HttpResponse>} promise handler.
    */
-  public patch(url: string, params?: PlainObject, headers?: Map<string>): Promise<any> {
+  public patch(url: string, params?: PlainObject, headers?: Map<string>): Promise<HttpResponse> {
     return this.request(HttpMethods.PATCH, url, params, headers);
   }
 
@@ -130,10 +131,10 @@ export class Httpr {
    * @param {PlainObject} params - hash of additional query parameters.
    * @param {Map<string>} headers - hash of request headers to set.
    * @param {*} body - request body data.
-   * @returns {Promise<*>} promise handler.
+   * @returns {Promise<HttpResponse>} promise handler.
    */
   public request(method: HttpMethod, url: string, params?: PlainObject,
-                 headers?: Map<string>, body?: any): Promise<any> {
+                 headers?: Map<string>, body?: any): Promise<HttpResponse> {
     return this.config.provider
     .request(HttprStatic.build(this, method, url, params, headers, body))
     .then((data) => HttprStatic.onSuccess(this, data))
