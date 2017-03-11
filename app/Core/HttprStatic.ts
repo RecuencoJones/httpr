@@ -37,6 +37,9 @@ export class HttprStatic {
     if (typeof body === 'object') {
       settings.headers[HttpHeaders.CONTENT_TYPE] = MediaTypes.APPLICATION_JSON;
       settings.body = JSON.stringify(body);
+    } else if (body) {
+      settings.headers[HttpHeaders.CONTENT_TYPE] = MediaTypes.TEXT_PLAIN;
+      settings.body = body;
     }
 
     instance.interceptors.forEach((interceptor: HttprInterceptor) => {

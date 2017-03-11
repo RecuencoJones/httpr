@@ -4,21 +4,14 @@ import {Httpr} from '../../../../app/Core/Httpr';
 import {HttpMethods} from '../../../../app/Enum/HttpMethods';
 import {MediaTypes} from '../../../../app/Enum/MediaTypes';
 import {HttpHeaders} from '../../../../app/Enum/HttpHeaders';
-import {HttprProvider} from '../../../../app/Core/HttprProvider';
-import {HttpRequestSettings} from '../../../../app/Type/HttpRequestSettings';
+import {MockProvider} from '../../../mocks/MockProvider';
 
 describe('HttprStatic', () => {
   let instance: Httpr;
 
-  class DryProvider implements HttprProvider {
-    request(settings: HttpRequestSettings): Promise<any> {
-      return Promise.resolve({});
-    }
-  }
-
   beforeEach(() => {
     instance = new Httpr({
-      provider: new DryProvider()
+      provider: new MockProvider()
     });
   });
 
@@ -45,6 +38,15 @@ describe('HttprStatic', () => {
       expect(expected.body).to.equal(JSON.stringify({
         foo: 'bar'
       }));
+    });
+
+    it('should build a POST request with test/plain', () => {
+      let expected = HttprStatic.build(instance, HttpMethods.POST, null, null, null, 'foo');
+
+      expect(expected.headers).to.deep.equal({
+        [HttpHeaders.CONTENT_TYPE]: MediaTypes.TEXT_PLAIN
+      });
+      expect(expected.body).to.equal('foo');
     });
   });
 });
