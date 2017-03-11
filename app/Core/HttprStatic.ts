@@ -39,11 +39,11 @@ export class HttprStatic {
       if (body instanceof HttprBody) {
         settings.headers[HttpHeaders.CONTENT_TYPE] = body.type;
         settings.body = body.toString();
+      } else if (settings.headers[HttpHeaders.CONTENT_TYPE]) {
+        settings.body = body;
       } else if (typeof body === 'object') {
         settings.headers[HttpHeaders.CONTENT_TYPE] = MediaTypes.APPLICATION_JSON;
         settings.body = JSON.stringify(body);
-      } else if (settings.headers[HttpHeaders.CONTENT_TYPE]) {
-        settings.body = body;
       } else {
         settings.headers[HttpHeaders.CONTENT_TYPE] = MediaTypes.TEXT_PLAIN;
         settings.body = body;
