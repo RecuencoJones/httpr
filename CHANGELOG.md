@@ -1,3 +1,9 @@
+# 1.0.0
+
+- Added http body specifications.
+- Added Form and Json body class.
+- Added more unit tests.
+
 ## 1.0.0-rc3
 
 - Added travis integration.
