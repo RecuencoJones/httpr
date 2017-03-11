@@ -101,6 +101,6 @@ describe('HttprStatic', () => {
         [HttpHeaders.CONTENT_TYPE]: 'x-custom/type'
       });
       expect(expected.body).to.equal('custom');
-    })
+    });
   });
 });
