@@ -9,6 +9,7 @@ import {Httpr} from './Httpr';
 import {HttprInterceptor} from './HttprInterceptor';
 import {urlJoin} from './HttprUtils';
 import {HttpResponse} from '../Type/HttpResponse';
+import {HttprBody} from './HttprBody';
 
 /**
  * Static methods used in Httpr for preparing requests and managing interceptors.
@@ -34,12 +35,19 @@ export class HttprStatic {
       params: params || {}
     };
 
-    if (typeof body === 'object') {
-      settings.headers[HttpHeaders.CONTENT_TYPE] = MediaTypes.APPLICATION_JSON;
-      settings.body = JSON.stringify(body);
-    } else if (body) {
-      settings.headers[HttpHeaders.CONTENT_TYPE] = MediaTypes.TEXT_PLAIN;
-      settings.body = body;
+    if (body) {
+      if (body instanceof HttprBody) {
+        settings.headers[HttpHeaders.CONTENT_TYPE] = body.type;
+        settings.body = body.toString();
+      } else if (settings.headers[HttpHeaders.CONTENT_TYPE]) {
+        settings.body = body;
+      } else if (typeof body === 'object') {
+        settings.headers[HttpHeaders.CONTENT_TYPE] = MediaTypes.APPLICATION_JSON;
+        settings.body = JSON.stringify(body);
+      } else {
+        settings.headers[HttpHeaders.CONTENT_TYPE] = MediaTypes.TEXT_PLAIN;
+        settings.body = body;
+      }
     }
 
     instance.interceptors.forEach((interceptor: HttprInterceptor) => {

@@ -5,4 +5,4 @@ export type Primitives = string | number | boolean;
  */
 export type PlainObject = {
   [key: string]: Primitives | Array<Primitives>;
-}
+};

@@ -17,6 +17,20 @@ export function urlEncode(object: PlainObject): string {
 }
 
 /**
+ * Decode a query string to plain object.
+ *
+ * @param {string} queryParams - encoded query string.
+ * @return {PlainObject} hash of items.
+ */
+export function urlDecode(queryParams: string): PlainObject {
+  return _.chain(queryParams)
+  .split('&')
+  .map((pair) => pair.split('='))
+  .fromPairs()
+  .value();
+}
+
+/**
  * Join two URL parts.
  *
  * @param {Array<string>} parts - URL parts.

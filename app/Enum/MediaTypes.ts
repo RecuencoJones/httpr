@@ -4,6 +4,7 @@
  * Bundled Media Types:
  * - application/json
  * - application/x-www-form-urlencoded
+ * - text/plain
  */
 export class MediaTypes {
   public static APPLICATION_JSON = 'application/json';

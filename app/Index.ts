@@ -3,7 +3,12 @@ export {Httpr} from './Core/Httpr';
 export {HttprStatic} from './Core/HttprStatic';
 export {HttprProvider} from './Core/HttprProvider';
 export {HttprInterceptor} from './Core/HttprInterceptor';
-export {urlEncode, urlJoin} from './Core/HttprUtils';
+export {urlEncode, urlDecode, urlJoin} from './Core/HttprUtils';
+
+// Body
+export {HttprBody} from './Core/HttprBody';
+export {Form} from './Core/Body/Form';
+export {Json} from './Core/Body/Json';
 
 // Enums
 export {HttpMethods} from './Enum/HttpMethods';

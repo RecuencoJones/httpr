@@ -4,6 +4,7 @@
       true,
       "spaces"
     ],
-    "no-trailing-whitespace": true
+    "no-trailing-whitespace": true,
+    "semicolon": true
   }
 }

@@ -8,10 +8,16 @@
  * - delete
  * - options
  * - patch
+ * - head
+ * - trace
+ * - connect
  */
 export type HttpMethod = 'get' |
   'post' |
   'put' |
   'delete' |
   'options' |
-  'patch';
+  'patch' |
+  'head' |
+  'trace' |
+  'connect';
