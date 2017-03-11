@@ -76,7 +76,7 @@ describe('HttprUtils', () => {
       expect(urlJoin(...paths)).to.equal('/foo/bar');
     });
 
-    it('should join two url paths 8', () => {
+    it('should join two url paths 7', () => {
       const paths = ['foo', 'bar/'];
 
       expect(urlJoin(...paths)).to.equal('foo/bar/');

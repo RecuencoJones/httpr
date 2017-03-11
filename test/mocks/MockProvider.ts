@@ -13,8 +13,8 @@ export class MockProvider implements HttprProvider {
     this.success = success;
   }
 
-  request(settings: HttpRequestSettings): Promise<any> {
-    let handler: Function = Promise[this.success ? 'resolve' : 'reject'];
+  public request(settings: HttpRequestSettings): Promise<HttpResponse> {
+    const handler: Function = Promise[this.success ? 'resolve' : 'reject'];
 
     this.onRequest(settings);
 

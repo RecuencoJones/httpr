@@ -40,7 +40,7 @@ describe('HttprStatic', () => {
       }));
     });
 
-    it('should build a POST request with test/plain', () => {
+    it('should build a POST request with text/plain', () => {
       let expected = HttprStatic.build(instance, HttpMethods.POST, null, null, null, 'foo');
 
       expect(expected.headers).to.deep.equal({
