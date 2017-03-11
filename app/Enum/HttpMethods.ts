@@ -12,4 +12,7 @@ export class HttpMethods {
   public static DELETE: HttpMethod = 'delete';
   public static OPTIONS: HttpMethod = 'options';
   public static PATCH: HttpMethod = 'patch';
+  public static HEAD: HttpMethod = 'head';
+  public static TRACE: HttpMethod = 'trace';
+  public static CONNECT: HttpMethod = 'connect';
 }

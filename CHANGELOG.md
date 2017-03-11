@@ -2,6 +2,8 @@
 
 - Added http body specifications.
 - Added Form and Json body class.
+- Added more http headers.
+- Added more http methods.
 - Added more unit tests.
 
 ## 1.0.0-rc3
