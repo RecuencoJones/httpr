@@ -1,3 +1,11 @@
+## 1.0.0-rc3
+
+- Added travis integration.
+- Added LICENSE file.
+- Added `text/plain` media type.
+- Added tests.
+- Fixed missing body field for non JSON types.
+
 ## 1.0.0-rc2
 
 - Added Http Response Type.

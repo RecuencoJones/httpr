@@ -1,4 +1,5 @@
 [![npm package](https://badge.fury.io/js/httpr.svg)](https://badge.fury.io/js/httpr)
+[![Build Status](https://travis-ci.org/RecuencoJones/httpr.png?branch=develop)](https://travis-ci.org/RecuencoJones/httpr)
 
 # httpr
 
